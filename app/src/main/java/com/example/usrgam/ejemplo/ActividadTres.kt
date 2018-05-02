@@ -15,7 +15,8 @@ class ActividadTres : AppCompatActivity() {
         setContentView(R.layout.activity_actividad_tres)
         setSupportActionBar(toolbar)
 
-        intent.getStringExtra()
+        val valorACompartir = intent.getStringExtra(Intent.EXTRA_TEXT)
+        textView2.text = valorACompartir
 
         button_tres.setOnClickListener { view ->
             irAActividadTres()
@@ -33,3 +34,4 @@ class ActividadTres : AppCompatActivity() {
     }
 
 }
+

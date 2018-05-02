@@ -1,15 +1,21 @@
 package com.example.usrgam.ejemplo
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.support.v4.content.ContextCompat.checkSelfPermission
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +24,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val permisoDeCamara = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+
+        Log.i("tag", "Crear permiso ${permisoDeCamara}")
+        if (permisoDeCamara != PackageManager.PERMISSION_GRANTED) {
+            Log.i("tag", "Entrando a pedir permiso")
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), RESULTADO_PERMISO_CAMARA)
+        } else {
+            Log.i("tag", "Ya tiene este permiso")
+        }
 //        fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
@@ -55,6 +70,16 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
 
     }
+
+    companion object {
+        val RESULTADO_PERMISO_CAMARA = 1;
+    }
+
+    /*override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode){
+            RESULTADO_PERMISO_CAMARA ->
+        }
+    }*/
 }
 
 
