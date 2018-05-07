@@ -3,10 +3,8 @@ package com.example.usrgam.ejemplo
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.checkSelfPermission
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
@@ -15,7 +13,6 @@ import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,10 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         // nuestro codigo
 
-        button_navegar_activida_dos
-                .setOnClickListener { view: View ->
-                    irAActividadDos()
-                }
+        button_navegar_activida_dos.setOnClickListener { view: View -> irAActividadDos()}
+
+        spinner.setOnClickListener { view: View -> irAActividadSpinner()}
+
+        botonCrearUusario.setOnClickListener { view: View -> irAActividadUsario()}
 
 
     }
@@ -67,6 +65,18 @@ class MainActivity : AppCompatActivity() {
     fun irAActividadDos() {
         val intent = Intent(this, ActividadDos::class.java)
         intent.putExtra("nombre", "ronnie")
+        startActivity(intent)
+
+    }
+
+    fun irAActividadSpinner() {
+        val intent = Intent(this, Spinner::class.java)
+        startActivity(intent)
+
+    }
+
+    fun irAActividadUsario() {
+        val intent = Intent(this, CrearUsuarioActivity::class.java)
         startActivity(intent)
 
     }
