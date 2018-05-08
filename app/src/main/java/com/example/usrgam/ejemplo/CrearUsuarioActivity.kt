@@ -4,16 +4,15 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_usuario.*
-import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.activity_crear_usuario.*
 
 class CrearUsuarioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_usuario)
+        setContentView(R.layout.activity_crear_usuario)
 
-        botonCrearUusario.setOnClickListener{view: View -> crearUsuario()}
+        botonCrearUs.setOnClickListener{view: View -> crearUsuario()}
 
     }
 

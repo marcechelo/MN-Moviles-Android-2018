@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Spinner" />
-        <activity android:name=".CrearUsuarioActivity"></activity>
+        <activity android:name=".CrearUsuarioActivity" />
     </application>
 
 </manifest>

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         spinner.setOnClickListener { view: View -> irAActividadSpinner()}
 
-        botonCrearUusario.setOnClickListener { view: View -> irAActividadUsario()}
+        botonCrearUsuario.setOnClickListener { view: View -> irAActividadUsario()}
 
 
     }
