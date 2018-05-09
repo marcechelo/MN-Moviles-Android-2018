@@ -10,12 +10,23 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class CicloVidaActivity : AppCompatActivity() {
 
-    var contador =0
+    var contador= 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ciclo_vida)
         Log.i("create", "Se esta creando la actividad")
+        val contadorGuardado:Int? = savedInstanceState?.get("conatdor") as Int?
+        Log.i("ciclo-vida", "El contador es: $contadorGuardado")
+
+        if (contadorGuardado ==null){
+            textViewContador.text = contador.toString()
+
+            }else{
+            textViewContador.text = contadorGuardado.toString()
+            contador = contadorGuardado
+        }
+
 
         botonContador.setOnClickListener{view: View ->
             contador++
@@ -34,6 +45,7 @@ class CicloVidaActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
+        outState?.putInt("contador",contador)
         Log.i("create", "Se esta guardando el estado de la instancia de esta actividad")
     }
 
