@@ -3,76 +3,85 @@ package com.example.usrgam.ejemplo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import kotlinx.android.synthetic.main.activity_ciclo_vida.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.util.*
 
 
 class CicloVidaActivity : AppCompatActivity() {
-
-    var contador= 0;
+    var contador = 0;
+    var usuario:UsuarioParcelable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ciclo_vida)
-        Log.i("create", "Se esta creando la actividad")
-        val contadorGuardado:Int? = savedInstanceState?.get("conatdor") as Int?
-        Log.i("ciclo-vida", "El contador es: $contadorGuardado")
+        Log.i("ciclo-vida", "Ejecuto: On Create")
 
-        if (contadorGuardado ==null){
-            textViewContador.text = contador.toString()
+        usuario = intent.getParcelableExtra("nuevo_usuario")
 
-            }else{
-            textViewContador.text = contadorGuardado.toString()
-            contador = contadorGuardado
+        val contadorGuardado: Int? = savedInstanceState?.get("contador") as Int?
+
+        val usuarioGuardado = savedInstanceState?.get("usuario") as UsuarioParcelable?
+
+        Log.i("ciclo-vida","El contador es: $contadorGuardado")
+
+        if(contadorGuardado ==null && usuarioGuardado == null){
+            textViewContador.text = usuario?.edad.toString()
+        } else {
+            textViewContador.text = usuarioGuardado?.edad.toString()
+            usuario = usuarioGuardado
         }
 
 
-        botonContador.setOnClickListener{view: View ->
-            contador++
-            textViewContador.text = contador.toString()
-        }
+        botonContador
+                .setOnClickListener { view ->
+                    usuario?.aumentarAnio(1)
+                    textViewContador.text = usuario?.edad.toString()
+                }
+
+
     }
 
     override fun onStart() {
         super.onStart()
-        Log.i("create", "Se esta starteando la actividad")
+        Log.i("ciclo-vida", "Ejecuto: On Start")
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        Log.i("create", "Se esta restorando la instancia de la actividad")
-    }
-
-    override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
-        outState?.putInt("contador",contador)
-        Log.i("create", "Se esta guardando el estado de la instancia de esta actividad")
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("ciclo-vida", "Ejecuto: On Restart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("create", "Resumiendo, iniciando recursos como la camara por ejemplo")
+        Log.i("ciclo-vida", "Ejecuto: On Resume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("create", "Pausando, momento para liberar la memoria y recursos")
+        Log.i("ciclo-vida", "Ejecuto: On Pause")
     }
-
 
     override fun onStop() {
         super.onStop()
-        Log.i("create", "Se esta parando la actividad aqui se debe de liberar todos los recursos de interfaz, tambien es un buen lugar para almacenar informacion no volatil")
+        Log.i("ciclo-vida", "Ejecuto: On Stop")
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("create", "Va a destruirse la vista, adios a todos")
+        Log.i("ciclo-vida", "Ejecuto: On Destroy")
     }
 
-    override fun finish() {
-        super.finish()
-        Log.i("create", "Finalizando, El usuario dijo que se quiere ir de esta Actividad")
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        Log.i("ciclo-vida", "Ejecuto: On RestoreInstanceState")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+
+        outState?.putInt("contador",contador)
+        outState?.putParcelable("usuario",usuario)
+
+        Log.i("ciclo-vida", "Ejecuto: On SaveInstanceState")
     }
 }

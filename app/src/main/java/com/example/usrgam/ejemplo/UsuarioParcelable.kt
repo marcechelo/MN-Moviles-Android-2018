@@ -6,21 +6,27 @@ import android.os.Parcelable
 import java.util.*
 
 
-class UsuarioParcelable (val nombre:String,
-                         val edad: Int,
-                         val fechaNacimiento:Date?,
-                         val casado:Boolean):Parcelable {
+class UsuarioParcelable(var nombre: String,
+                        var edad: Int,
+                        var fechaNacimiento: Date?,
+                        var casado: Boolean) : Parcelable {
+
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readInt(),
-            TODO("fechaNacimiento"),
+            parcel.leerDate(),
             parcel.readByte() != 0.toByte()) {
     }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(nombre)
-        parcel.writeInt(edad)
-        parcel.writeByte(if (casado) 1 else 0)
+    fun aumentarAnio(numero:Int){
+        edad += numero
+    }
+
+    override fun writeToParcel(destino: Parcel?, p1: Int) {
+        destino?.writeString(nombre)
+        destino?.writeInt(edad)
+        destino?.escribirDate(fechaNacimiento)
+        destino?.writeByte((if (casado) 1 else 0).toByte())
     }
 
     override fun describeContents(): Int {
@@ -36,5 +42,14 @@ class UsuarioParcelable (val nombre:String,
             return arrayOfNulls(size)
         }
     }
+}
 
+
+fun Parcel.escribirDate(date: Date?) {
+    writeLong(date?.time ?: -1)
+}
+
+fun Parcel.leerDate(): Date? {
+    val long = readLong()
+    return if (long != -1L) Date(long) else null
 }

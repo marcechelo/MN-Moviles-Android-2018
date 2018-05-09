@@ -13,6 +13,7 @@ import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -85,6 +86,8 @@ class MainActivity : AppCompatActivity() {
 
     fun irACicloVida() {
         val intent = Intent(this, CicloVidaActivity::class.java)
+        var nuevoUsuario = UsuarioParcelable("marcelo",23, Date(),false)
+        intent.putExtra("nuevo_usuario",nuevoUsuario)
         startActivity(intent)
 
     }

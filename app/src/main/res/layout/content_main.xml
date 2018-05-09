@@ -72,7 +72,7 @@
         android:layout_marginBottom="24dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:text="Cislo de Vida"
+        android:text="Ciclo de Vida"
         app:layout_constraintBottom_toTopOf="@+id/button_navegar_activida_dos"
         app:layout_constraintEnd_toEndOf="@+id/button_navegar_activida_dos"
         app:layout_constraintHorizontal_bias="0.526"
