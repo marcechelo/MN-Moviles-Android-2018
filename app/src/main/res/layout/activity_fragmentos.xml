@@ -29,12 +29,16 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Tab2"
         app:layout_constraintBottom_toTopOf="@+id/rl_Fragments"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.814"
-        tools:layout_editor_absoluteX="148dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botonTab3"
@@ -46,28 +50,33 @@
         android:text="Tab3"
         app:layout_constraintBottom_toBottomOf="@+id/botonTab2"
         app:layout_constraintStart_toEndOf="@+id/botonTab2"
-        app:layout_constraintTop_toTopOf="@+id/botonTab2" />
+        app:layout_constraintTop_toTopOf="@+id/botonTab2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/botonDestruir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginRight="152dp"
         android:layout_marginTop="8dp"
         android:text="Destruir"
+        app:layout_constraintBottom_toTopOf="@+id/botonTab2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botonTab1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:text="Tab1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/botonTab2"
+        app:layout_constraintEnd_toStartOf="@+id/botonTab2"
+        app:layout_constraintTop_toTopOf="@+id/botonTab2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
