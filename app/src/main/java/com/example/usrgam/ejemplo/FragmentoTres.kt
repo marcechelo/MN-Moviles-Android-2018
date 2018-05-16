@@ -15,5 +15,5 @@ class FragmentoTres : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragmento_tres, container, false)
     }
-    
+
 }

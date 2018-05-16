@@ -9,27 +9,18 @@
     <RelativeLayout
         android:id="@+id/rl_Fragments"
         android:layout_width="319dp"
-        android:layout_height="312dp"
-        android:layout_marginBottom="28dp"
+        android:layout_height="207dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/botonTab2"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="@+id/botonTab2">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent">
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/botonTab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginTop="8dp"
-        android:text="Tab1"
-        app:layout_constraintBottom_toBottomOf="@+id/botonTab2"
-        app:layout_constraintEnd_toStartOf="@+id/botonTab2"
-        app:layout_constraintTop_toTopOf="@+id/botonTab2"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/botonTab2"
@@ -37,23 +28,46 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="37dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:text="Tab2"
         app:layout_constraintBottom_toTopOf="@+id/rl_Fragments"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209"
-        tools:layout_editor_absoluteX="158dp" />
+        app:layout_constraintVertical_bias="0.814"
+        tools:layout_editor_absoluteX="148dp" />
 
     <Button
         android:id="@+id/botonTab3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Tab3"
         app:layout_constraintBottom_toBottomOf="@+id/botonTab2"
         app:layout_constraintStart_toEndOf="@+id/botonTab2"
-        app:layout_constraintTop_toTopOf="@+id/botonTab2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/botonTab2" />
+
+    <Button
+        android:id="@+id/botonDestruir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Destruir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonTab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tab1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

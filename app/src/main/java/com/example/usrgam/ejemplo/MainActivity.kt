@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         botonCicloVida.setOnClickListener { view: View -> irACicloVida()}
 
-        botonSqlite.setOnClickListener { view: View -> irAActividadFragmento()}
+        botonSqlite.setOnClickListener { view: View ->  irAActividadSqlite()}
 
-        botonFragmento.setOnClickListener { view: View -> irAActividadSqlite()}
+        botonFragmento.setOnClickListener { view: View -> irAActividadFragmento()}
 
 
     }
