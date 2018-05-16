@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         botonCicloVida.setOnClickListener { view: View -> irACicloVida()}
 
+        botonSqlite.setOnClickListener { view: View -> irAActividadFragmento()}
+
+        botonFragmento.setOnClickListener { view: View -> irAActividadSqlite()}
+
 
     }
 
@@ -80,6 +84,18 @@ class MainActivity : AppCompatActivity() {
 
     fun irAActividadUsario() {
         val intent = Intent(this, CrearUsuarioActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun irAActividadSqlite() {
+        val intent = Intent(this, SqliteActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun irAActividadFragmento() {
+        val intent = Intent(this, FragmentosActivity::class.java)
         startActivity(intent)
 
     }
