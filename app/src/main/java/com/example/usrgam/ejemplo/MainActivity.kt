@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         botonFragmento.setOnClickListener { view: View -> irAActividadFragmento()}
 
+        botonMenu.setOnClickListener { view: View -> irAActividadMenu()}
+
+        botonDialogo.setOnClickListener { view: View -> irAActividadDialogo()}
+
 
     }
 
@@ -96,6 +100,18 @@ class MainActivity : AppCompatActivity() {
 
     fun irAActividadFragmento() {
         val intent = Intent(this, FragmentosActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun irAActividadMenu() {
+        val intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun irAActividadDialogo() {
+        val intent = Intent(this, DialogoActivity::class.java)
         startActivity(intent)
 
     }
